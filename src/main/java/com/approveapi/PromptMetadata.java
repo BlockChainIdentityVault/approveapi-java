@@ -15,30 +15,38 @@ package com.approveapi;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * PromptMetadata
  */
 
 public class PromptMetadata {
-  @JsonProperty("time")
+  public static final String SERIALIZED_NAME_TIME = "time";
+  @SerializedName(SERIALIZED_NAME_TIME)
   private String time;
 
-  @JsonProperty("operating_system")
+  public static final String SERIALIZED_NAME_OPERATING_SYSTEM = "operating_system";
+  @SerializedName(SERIALIZED_NAME_OPERATING_SYSTEM)
   private String operatingSystem;
 
-  @JsonProperty("ip_address")
+  public static final String SERIALIZED_NAME_IP_ADDRESS = "ip_address";
+  @SerializedName(SERIALIZED_NAME_IP_ADDRESS)
   private String ipAddress;
 
-  @JsonProperty("location")
+  public static final String SERIALIZED_NAME_LOCATION = "location";
+  @SerializedName(SERIALIZED_NAME_LOCATION)
   private String location;
 
-  @JsonProperty("browser")
+  public static final String SERIALIZED_NAME_BROWSER = "browser";
+  @SerializedName(SERIALIZED_NAME_BROWSER)
   private String browser;
 
   public PromptMetadata time(String time) {

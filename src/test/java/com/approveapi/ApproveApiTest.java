@@ -13,6 +13,7 @@
 
 package com.approveapi;
 
+import com.approveapi.ApiException;
 import com.approveapi.CreatePromptRequest;
 import com.approveapi.Error;
 import com.approveapi.Prompt;
@@ -20,7 +21,6 @@ import com.approveapi.PromptStatus;
 import org.junit.Test;
 import org.junit.Ignore;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,11 +40,11 @@ public class ApproveApiTest {
      *
      * Creates a prompt and pushes it to the user (sends via email, sms, or other supported protocols).
      *
-     * @throws IOException
+     * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void createPromptTest() throws IOException {
+    public void createPromptTest() throws ApiException {
         CreatePromptRequest createPromptRequest = null;
         Prompt response = api.createPrompt(createPromptRequest);
 
@@ -56,11 +56,11 @@ public class ApproveApiTest {
      *
      * Retrieve the prompt object with the given ID.
      *
-     * @throws IOException
+     * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getPromptTest() throws IOException {
+    public void getPromptTest() throws ApiException {
         String id = null;
         Boolean longPoll = null;
         Prompt response = api.getPrompt(id, longPoll);
@@ -73,11 +73,11 @@ public class ApproveApiTest {
      *
      * Returns whether a prompt has been completed by the user. This request does not require authentication, and so can be used client-side without sharing API credentials.
      *
-     * @throws IOException
+     * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getPromptStatusTest() throws IOException {
+    public void getPromptStatusTest() throws ApiException {
         String id = null;
         PromptStatus response = api.getPromptStatus(id);
 

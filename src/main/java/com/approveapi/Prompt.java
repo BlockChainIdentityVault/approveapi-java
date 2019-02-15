@@ -17,11 +17,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.approveapi.PromptAnswer;
 import com.approveapi.PromptMetadata;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
@@ -29,19 +32,24 @@ import java.math.BigDecimal;
  */
 
 public class Prompt {
-  @JsonProperty("answer")
+  public static final String SERIALIZED_NAME_ANSWER = "answer";
+  @SerializedName(SERIALIZED_NAME_ANSWER)
   private PromptAnswer answer = null;
 
-  @JsonProperty("sent_at")
+  public static final String SERIALIZED_NAME_SENT_AT = "sent_at";
+  @SerializedName(SERIALIZED_NAME_SENT_AT)
   private BigDecimal sentAt;
 
-  @JsonProperty("id")
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
-  @JsonProperty("expires_at")
+  public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
+  @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
   private BigDecimal expiresAt;
 
-  @JsonProperty("metadata")
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
   private PromptMetadata metadata = null;
 
   public Prompt answer(PromptAnswer answer) {

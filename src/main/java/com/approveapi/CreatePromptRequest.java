@@ -16,11 +16,14 @@ package com.approveapi;
 import java.util.Objects;
 import java.util.Arrays;
 import com.approveapi.PromptMetadata;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
@@ -28,28 +31,36 @@ import java.math.BigDecimal;
  */
 
 public class CreatePromptRequest {
-  @JsonProperty("body")
+  public static final String SERIALIZED_NAME_BODY = "body";
+  @SerializedName(SERIALIZED_NAME_BODY)
   private String body;
 
-  @JsonProperty("title")
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
 
-  @JsonProperty("reject_text")
+  public static final String SERIALIZED_NAME_REJECT_TEXT = "reject_text";
+  @SerializedName(SERIALIZED_NAME_REJECT_TEXT)
   private String rejectText;
 
-  @JsonProperty("expires_in")
+  public static final String SERIALIZED_NAME_EXPIRES_IN = "expires_in";
+  @SerializedName(SERIALIZED_NAME_EXPIRES_IN)
   private BigDecimal expiresIn;
 
-  @JsonProperty("long_poll")
+  public static final String SERIALIZED_NAME_LONG_POLL = "long_poll";
+  @SerializedName(SERIALIZED_NAME_LONG_POLL)
   private Boolean longPoll;
 
-  @JsonProperty("user")
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
   private String user;
 
-  @JsonProperty("approve_text")
+  public static final String SERIALIZED_NAME_APPROVE_TEXT = "approve_text";
+  @SerializedName(SERIALIZED_NAME_APPROVE_TEXT)
   private String approveText;
 
-  @JsonProperty("metadata")
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
   private PromptMetadata metadata = null;
 
   public CreatePromptRequest body(String body) {

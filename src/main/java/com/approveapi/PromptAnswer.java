@@ -16,11 +16,14 @@ package com.approveapi;
 import java.util.Objects;
 import java.util.Arrays;
 import com.approveapi.AnswerMetadata;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
@@ -28,13 +31,16 @@ import java.math.BigDecimal;
  */
 
 public class PromptAnswer {
-  @JsonProperty("time")
+  public static final String SERIALIZED_NAME_TIME = "time";
+  @SerializedName(SERIALIZED_NAME_TIME)
   private BigDecimal time;
 
-  @JsonProperty("result")
+  public static final String SERIALIZED_NAME_RESULT = "result";
+  @SerializedName(SERIALIZED_NAME_RESULT)
   private Boolean result;
 
-  @JsonProperty("metadata")
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
   private AnswerMetadata metadata = null;
 
   public PromptAnswer time(BigDecimal time) {
