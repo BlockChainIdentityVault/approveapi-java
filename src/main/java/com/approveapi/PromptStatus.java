@@ -33,6 +33,10 @@ public class PromptStatus {
   @SerializedName(SERIALIZED_NAME_IS_ANSWERED)
   private Boolean isAnswered;
 
+  public static final String SERIALIZED_NAME_IS_EXPIRED = "is_expired";
+  @SerializedName(SERIALIZED_NAME_IS_EXPIRED)
+  private Boolean isExpired;
+
   public PromptStatus isAnswered(Boolean isAnswered) {
     this.isAnswered = isAnswered;
     return this;
@@ -51,6 +55,24 @@ public class PromptStatus {
     this.isAnswered = isAnswered;
   }
 
+  public PromptStatus isExpired(Boolean isExpired) {
+    this.isExpired = isExpired;
+    return this;
+  }
+
+   /**
+   * Whether the prompt can still be answered.
+   * @return isExpired
+  **/
+  @ApiModelProperty(required = true, value = "Whether the prompt can still be answered.")
+  public Boolean getIsExpired() {
+    return isExpired;
+  }
+
+  public void setIsExpired(Boolean isExpired) {
+    this.isExpired = isExpired;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +83,13 @@ public class PromptStatus {
       return false;
     }
     PromptStatus promptStatus = (PromptStatus) o;
-    return Objects.equals(this.isAnswered, promptStatus.isAnswered);
+    return Objects.equals(this.isAnswered, promptStatus.isAnswered) &&
+        Objects.equals(this.isExpired, promptStatus.isExpired);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isAnswered);
+    return Objects.hash(isAnswered, isExpired);
   }
 
 
@@ -75,6 +98,7 @@ public class PromptStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class PromptStatus {\n");
     sb.append("    isAnswered: ").append(toIndentedString(isAnswered)).append("\n");
+    sb.append("    isExpired: ").append(toIndentedString(isExpired)).append("\n");
     sb.append("}");
     return sb.toString();
   }

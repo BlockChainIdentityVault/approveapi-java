@@ -48,4 +48,12 @@ public class PromptStatusTest {
         // TODO: test isAnswered
     }
 
+    /**
+     * Test the property 'isExpired'
+     */
+    @Test
+    public void isExpiredTest() {
+        // TODO: test isExpired
+    }
+
 }

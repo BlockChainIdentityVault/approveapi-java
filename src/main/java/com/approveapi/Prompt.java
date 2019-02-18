@@ -40,13 +40,13 @@ public class Prompt {
   @SerializedName(SERIALIZED_NAME_SENT_AT)
   private BigDecimal sentAt;
 
+  public static final String SERIALIZED_NAME_IS_EXPIRED = "is_expired";
+  @SerializedName(SERIALIZED_NAME_IS_EXPIRED)
+  private Boolean isExpired;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
-
-  public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
-  @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-  private BigDecimal expiresAt;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -88,6 +88,24 @@ public class Prompt {
     this.sentAt = sentAt;
   }
 
+  public Prompt isExpired(Boolean isExpired) {
+    this.isExpired = isExpired;
+    return this;
+  }
+
+   /**
+   * Whether the prompt can still be answered.
+   * @return isExpired
+  **/
+  @ApiModelProperty(required = true, value = "Whether the prompt can still be answered.")
+  public Boolean getIsExpired() {
+    return isExpired;
+  }
+
+  public void setIsExpired(Boolean isExpired) {
+    this.isExpired = isExpired;
+  }
+
   public Prompt id(String id) {
     this.id = id;
     return this;
@@ -104,24 +122,6 @@ public class Prompt {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public Prompt expiresAt(BigDecimal expiresAt) {
-    this.expiresAt = expiresAt;
-    return this;
-  }
-
-   /**
-   * The unix timestamp when this prompt can no longer be answered.
-   * @return expiresAt
-  **/
-  @ApiModelProperty(value = "The unix timestamp when this prompt can no longer be answered.")
-  public BigDecimal getExpiresAt() {
-    return expiresAt;
-  }
-
-  public void setExpiresAt(BigDecimal expiresAt) {
-    this.expiresAt = expiresAt;
   }
 
   public Prompt metadata(PromptMetadata metadata) {
@@ -154,14 +154,14 @@ public class Prompt {
     Prompt prompt = (Prompt) o;
     return Objects.equals(this.answer, prompt.answer) &&
         Objects.equals(this.sentAt, prompt.sentAt) &&
+        Objects.equals(this.isExpired, prompt.isExpired) &&
         Objects.equals(this.id, prompt.id) &&
-        Objects.equals(this.expiresAt, prompt.expiresAt) &&
         Objects.equals(this.metadata, prompt.metadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(answer, sentAt, id, expiresAt, metadata);
+    return Objects.hash(answer, sentAt, isExpired, id, metadata);
   }
 
 
@@ -171,8 +171,8 @@ public class Prompt {
     sb.append("class Prompt {\n");
     sb.append("    answer: ").append(toIndentedString(answer)).append("\n");
     sb.append("    sentAt: ").append(toIndentedString(sentAt)).append("\n");
+    sb.append("    isExpired: ").append(toIndentedString(isExpired)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");
     return sb.toString();

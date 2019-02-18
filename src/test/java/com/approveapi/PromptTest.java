@@ -60,19 +60,19 @@ public class PromptTest {
     }
 
     /**
+     * Test the property 'isExpired'
+     */
+    @Test
+    public void isExpiredTest() {
+        // TODO: test isExpired
+    }
+
+    /**
      * Test the property 'id'
      */
     @Test
     public void idTest() {
         // TODO: test id
-    }
-
-    /**
-     * Test the property 'expiresAt'
-     */
-    @Test
-    public void expiresAtTest() {
-        // TODO: test expiresAt
     }
 
     /**
