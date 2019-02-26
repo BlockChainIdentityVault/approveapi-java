@@ -1,7 +1,7 @@
 # approveapi-client
 
 ApproveAPISwagger
-- API version: 1.0.0
+- API version: 1.0.1
 
 The simple API to request a user's approval on anything via email + sms.
 
@@ -39,7 +39,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.approveapi</groupId>
   <artifactId>approveapi-client</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -49,7 +49,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.approveapi:approveapi-client:1.0.5"
+compile "com.approveapi:approveapi-client:1.0.6"
 ```
 
 ### Others
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/approveapi-client-1.0.5.jar`
+* `target/approveapi-client-1.0.6.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
