@@ -41,19 +41,19 @@ public class PromptMetadataTest {
     }
 
     /**
+     * Test the property 'location'
+     */
+    @Test
+    public void locationTest() {
+        // TODO: test location
+    }
+
+    /**
      * Test the property 'time'
      */
     @Test
     public void timeTest() {
         // TODO: test time
-    }
-
-    /**
-     * Test the property 'operatingSystem'
-     */
-    @Test
-    public void operatingSystemTest() {
-        // TODO: test operatingSystem
     }
 
     /**
@@ -65,19 +65,19 @@ public class PromptMetadataTest {
     }
 
     /**
-     * Test the property 'location'
-     */
-    @Test
-    public void locationTest() {
-        // TODO: test location
-    }
-
-    /**
      * Test the property 'browser'
      */
     @Test
     public void browserTest() {
         // TODO: test browser
+    }
+
+    /**
+     * Test the property 'operatingSystem'
+     */
+    @Test
+    public void operatingSystemTest() {
+        // TODO: test operatingSystem
     }
 
 }

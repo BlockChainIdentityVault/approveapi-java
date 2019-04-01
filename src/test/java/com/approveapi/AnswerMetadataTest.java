@@ -41,14 +41,6 @@ public class AnswerMetadataTest {
     }
 
     /**
-     * Test the property 'operatingSystem'
-     */
-    @Test
-    public void operatingSystemTest() {
-        // TODO: test operatingSystem
-    }
-
-    /**
      * Test the property 'ipAddress'
      */
     @Test
@@ -62,6 +54,14 @@ public class AnswerMetadataTest {
     @Test
     public void browserTest() {
         // TODO: test browser
+    }
+
+    /**
+     * Test the property 'operatingSystem'
+     */
+    @Test
+    public void operatingSystemTest() {
+        // TODO: test operatingSystem
     }
 
 }

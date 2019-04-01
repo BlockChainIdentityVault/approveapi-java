@@ -25,12 +25,19 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * CreatePromptRequest
  */
 
 public class CreatePromptRequest {
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
+
   public static final String SERIALIZED_NAME_BODY = "body";
   @SerializedName(SERIALIZED_NAME_BODY)
   private String body;
@@ -38,22 +45,6 @@ public class CreatePromptRequest {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
-
-  public static final String SERIALIZED_NAME_REJECT_TEXT = "reject_text";
-  @SerializedName(SERIALIZED_NAME_REJECT_TEXT)
-  private String rejectText;
-
-  public static final String SERIALIZED_NAME_EXPIRES_IN = "expires_in";
-  @SerializedName(SERIALIZED_NAME_EXPIRES_IN)
-  private BigDecimal expiresIn;
-
-  public static final String SERIALIZED_NAME_LONG_POLL = "long_poll";
-  @SerializedName(SERIALIZED_NAME_LONG_POLL)
-  private Boolean longPoll;
-
-  public static final String SERIALIZED_NAME_USER = "user";
-  @SerializedName(SERIALIZED_NAME_USER)
-  private String user;
 
   public static final String SERIALIZED_NAME_APPROVE_TEXT = "approve_text";
   @SerializedName(SERIALIZED_NAME_APPROVE_TEXT)
@@ -63,13 +54,51 @@ public class CreatePromptRequest {
   @SerializedName(SERIALIZED_NAME_APPROVE_REDIRECT_URL)
   private String approveRedirectUrl;
 
+  public static final String SERIALIZED_NAME_REJECT_TEXT = "reject_text";
+  @SerializedName(SERIALIZED_NAME_REJECT_TEXT)
+  private String rejectText;
+
   public static final String SERIALIZED_NAME_REJECT_REDIRECT_URL = "reject_redirect_url";
   @SerializedName(SERIALIZED_NAME_REJECT_REDIRECT_URL)
   private String rejectRedirectUrl;
 
+  public static final String SERIALIZED_NAME_LONG_POLL = "long_poll";
+  @SerializedName(SERIALIZED_NAME_LONG_POLL)
+  private Boolean longPoll;
+
+  public static final String SERIALIZED_NAME_EXPIRES_IN = "expires_in";
+  @SerializedName(SERIALIZED_NAME_EXPIRES_IN)
+  private BigDecimal expiresIn;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private PromptMetadata metadata = null;
+
+  public static final String SERIALIZED_NAME_INTERNAL_DATA = "internal_data";
+  @SerializedName(SERIALIZED_NAME_INTERNAL_DATA)
+  private Map<String, String> internalData = new HashMap<String, String>();
+
+  public static final String SERIALIZED_NAME_IDEMPOTENCY_KEY = "idempotency_key";
+  @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_KEY)
+  private String idempotencyKey;
+
+  public CreatePromptRequest user(String user) {
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * The user to send the approval request to. Can be either an email address or a phone number.
+   * @return user
+  **/
+  @ApiModelProperty(required = true, value = "The user to send the approval request to. Can be either an email address or a phone number.")
+  public String getUser() {
+    return user;
+  }
+
+  public void setUser(String user) {
+    this.user = user;
+  }
 
   public CreatePromptRequest body(String body) {
     this.body = body;
@@ -105,78 +134,6 @@ public class CreatePromptRequest {
 
   public void setTitle(String title) {
     this.title = title;
-  }
-
-  public CreatePromptRequest rejectText(String rejectText) {
-    this.rejectText = rejectText;
-    return this;
-  }
-
-   /**
-   * The reject action text. If not specified the reject button will NOT be rendered, and the user will only see an approve action button.
-   * @return rejectText
-  **/
-  @ApiModelProperty(value = "The reject action text. If not specified the reject button will NOT be rendered, and the user will only see an approve action button.")
-  public String getRejectText() {
-    return rejectText;
-  }
-
-  public void setRejectText(String rejectText) {
-    this.rejectText = rejectText;
-  }
-
-  public CreatePromptRequest expiresIn(BigDecimal expiresIn) {
-    this.expiresIn = expiresIn;
-    return this;
-  }
-
-   /**
-   * The number of seconds until this request can no longer be answered.
-   * @return expiresIn
-  **/
-  @ApiModelProperty(value = "The number of seconds until this request can no longer be answered.")
-  public BigDecimal getExpiresIn() {
-    return expiresIn;
-  }
-
-  public void setExpiresIn(BigDecimal expiresIn) {
-    this.expiresIn = expiresIn;
-  }
-
-  public CreatePromptRequest longPoll(Boolean longPoll) {
-    this.longPoll = longPoll;
-    return this;
-  }
-
-   /**
-   * If true, the request waits (long-polls) until the user responds to the prompt or more than 10 minutes pass. Defaults to false.
-   * @return longPoll
-  **/
-  @ApiModelProperty(value = "If true, the request waits (long-polls) until the user responds to the prompt or more than 10 minutes pass. Defaults to false.")
-  public Boolean getLongPoll() {
-    return longPoll;
-  }
-
-  public void setLongPoll(Boolean longPoll) {
-    this.longPoll = longPoll;
-  }
-
-  public CreatePromptRequest user(String user) {
-    this.user = user;
-    return this;
-  }
-
-   /**
-   * The user to send the approval request to. Can be either an email address or a phone number.
-   * @return user
-  **/
-  @ApiModelProperty(required = true, value = "The user to send the approval request to. Can be either an email address or a phone number.")
-  public String getUser() {
-    return user;
-  }
-
-  public void setUser(String user) {
-    this.user = user;
   }
 
   public CreatePromptRequest approveText(String approveText) {
@@ -215,6 +172,24 @@ public class CreatePromptRequest {
     this.approveRedirectUrl = approveRedirectUrl;
   }
 
+  public CreatePromptRequest rejectText(String rejectText) {
+    this.rejectText = rejectText;
+    return this;
+  }
+
+   /**
+   * The reject action text. If not specified the reject button will NOT be rendered, and the user will only see an approve action button.
+   * @return rejectText
+  **/
+  @ApiModelProperty(value = "The reject action text. If not specified the reject button will NOT be rendered, and the user will only see an approve action button.")
+  public String getRejectText() {
+    return rejectText;
+  }
+
+  public void setRejectText(String rejectText) {
+    this.rejectText = rejectText;
+  }
+
   public CreatePromptRequest rejectRedirectUrl(String rejectRedirectUrl) {
     this.rejectRedirectUrl = rejectRedirectUrl;
     return this;
@@ -231,6 +206,42 @@ public class CreatePromptRequest {
 
   public void setRejectRedirectUrl(String rejectRedirectUrl) {
     this.rejectRedirectUrl = rejectRedirectUrl;
+  }
+
+  public CreatePromptRequest longPoll(Boolean longPoll) {
+    this.longPoll = longPoll;
+    return this;
+  }
+
+   /**
+   * If true, the request waits (long-polls) until the user responds to the prompt or more than 10 minutes pass. Defaults to false.
+   * @return longPoll
+  **/
+  @ApiModelProperty(value = "If true, the request waits (long-polls) until the user responds to the prompt or more than 10 minutes pass. Defaults to false.")
+  public Boolean getLongPoll() {
+    return longPoll;
+  }
+
+  public void setLongPoll(Boolean longPoll) {
+    this.longPoll = longPoll;
+  }
+
+  public CreatePromptRequest expiresIn(BigDecimal expiresIn) {
+    this.expiresIn = expiresIn;
+    return this;
+  }
+
+   /**
+   * The number of seconds until this request can no longer be answered.
+   * @return expiresIn
+  **/
+  @ApiModelProperty(value = "The number of seconds until this request can no longer be answered.")
+  public BigDecimal getExpiresIn() {
+    return expiresIn;
+  }
+
+  public void setExpiresIn(BigDecimal expiresIn) {
+    this.expiresIn = expiresIn;
   }
 
   public CreatePromptRequest metadata(PromptMetadata metadata) {
@@ -251,6 +262,50 @@ public class CreatePromptRequest {
     this.metadata = metadata;
   }
 
+  public CreatePromptRequest internalData(Map<String, String> internalData) {
+    this.internalData = internalData;
+    return this;
+  }
+
+  public CreatePromptRequest putInternalDataItem(String key, String internalDataItem) {
+    if (this.internalData == null) {
+      this.internalData = new HashMap<String, String>();
+    }
+    this.internalData.put(key, internalDataItem);
+    return this;
+  }
+
+   /**
+   * Get internalData
+   * @return internalData
+  **/
+  @ApiModelProperty(value = "")
+  public Map<String, String> getInternalData() {
+    return internalData;
+  }
+
+  public void setInternalData(Map<String, String> internalData) {
+    this.internalData = internalData;
+  }
+
+  public CreatePromptRequest idempotencyKey(String idempotencyKey) {
+    this.idempotencyKey = idempotencyKey;
+    return this;
+  }
+
+   /**
+   * Allows calling &#x60;create_prompt&#x60; multiple times idempotently, such that a prompt is sent at-most once. This key should contain sufficient randomness. Idempotent requests are stored for 24 hours. After that time, the same key will create a new request.
+   * @return idempotencyKey
+  **/
+  @ApiModelProperty(value = "Allows calling `create_prompt` multiple times idempotently, such that a prompt is sent at-most once. This key should contain sufficient randomness. Idempotent requests are stored for 24 hours. After that time, the same key will create a new request.")
+  public String getIdempotencyKey() {
+    return idempotencyKey;
+  }
+
+  public void setIdempotencyKey(String idempotencyKey) {
+    this.idempotencyKey = idempotencyKey;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -261,21 +316,23 @@ public class CreatePromptRequest {
       return false;
     }
     CreatePromptRequest createPromptRequest = (CreatePromptRequest) o;
-    return Objects.equals(this.body, createPromptRequest.body) &&
+    return Objects.equals(this.user, createPromptRequest.user) &&
+        Objects.equals(this.body, createPromptRequest.body) &&
         Objects.equals(this.title, createPromptRequest.title) &&
-        Objects.equals(this.rejectText, createPromptRequest.rejectText) &&
-        Objects.equals(this.expiresIn, createPromptRequest.expiresIn) &&
-        Objects.equals(this.longPoll, createPromptRequest.longPoll) &&
-        Objects.equals(this.user, createPromptRequest.user) &&
         Objects.equals(this.approveText, createPromptRequest.approveText) &&
         Objects.equals(this.approveRedirectUrl, createPromptRequest.approveRedirectUrl) &&
+        Objects.equals(this.rejectText, createPromptRequest.rejectText) &&
         Objects.equals(this.rejectRedirectUrl, createPromptRequest.rejectRedirectUrl) &&
-        Objects.equals(this.metadata, createPromptRequest.metadata);
+        Objects.equals(this.longPoll, createPromptRequest.longPoll) &&
+        Objects.equals(this.expiresIn, createPromptRequest.expiresIn) &&
+        Objects.equals(this.metadata, createPromptRequest.metadata) &&
+        Objects.equals(this.internalData, createPromptRequest.internalData) &&
+        Objects.equals(this.idempotencyKey, createPromptRequest.idempotencyKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(body, title, rejectText, expiresIn, longPoll, user, approveText, approveRedirectUrl, rejectRedirectUrl, metadata);
+    return Objects.hash(user, body, title, approveText, approveRedirectUrl, rejectText, rejectRedirectUrl, longPoll, expiresIn, metadata, internalData, idempotencyKey);
   }
 
 
@@ -283,16 +340,18 @@ public class CreatePromptRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePromptRequest {\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    rejectText: ").append(toIndentedString(rejectText)).append("\n");
-    sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
-    sb.append("    longPoll: ").append(toIndentedString(longPoll)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    approveText: ").append(toIndentedString(approveText)).append("\n");
     sb.append("    approveRedirectUrl: ").append(toIndentedString(approveRedirectUrl)).append("\n");
+    sb.append("    rejectText: ").append(toIndentedString(rejectText)).append("\n");
     sb.append("    rejectRedirectUrl: ").append(toIndentedString(rejectRedirectUrl)).append("\n");
+    sb.append("    longPoll: ").append(toIndentedString(longPoll)).append("\n");
+    sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    internalData: ").append(toIndentedString(internalData)).append("\n");
+    sb.append("    idempotencyKey: ").append(toIndentedString(idempotencyKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

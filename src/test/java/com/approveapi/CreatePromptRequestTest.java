@@ -23,6 +23,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -43,6 +46,14 @@ public class CreatePromptRequestTest {
     }
 
     /**
+     * Test the property 'user'
+     */
+    @Test
+    public void userTest() {
+        // TODO: test user
+    }
+
+    /**
      * Test the property 'body'
      */
     @Test
@@ -56,38 +67,6 @@ public class CreatePromptRequestTest {
     @Test
     public void titleTest() {
         // TODO: test title
-    }
-
-    /**
-     * Test the property 'rejectText'
-     */
-    @Test
-    public void rejectTextTest() {
-        // TODO: test rejectText
-    }
-
-    /**
-     * Test the property 'expiresIn'
-     */
-    @Test
-    public void expiresInTest() {
-        // TODO: test expiresIn
-    }
-
-    /**
-     * Test the property 'longPoll'
-     */
-    @Test
-    public void longPollTest() {
-        // TODO: test longPoll
-    }
-
-    /**
-     * Test the property 'user'
-     */
-    @Test
-    public void userTest() {
-        // TODO: test user
     }
 
     /**
@@ -107,6 +86,14 @@ public class CreatePromptRequestTest {
     }
 
     /**
+     * Test the property 'rejectText'
+     */
+    @Test
+    public void rejectTextTest() {
+        // TODO: test rejectText
+    }
+
+    /**
      * Test the property 'rejectRedirectUrl'
      */
     @Test
@@ -115,11 +102,43 @@ public class CreatePromptRequestTest {
     }
 
     /**
+     * Test the property 'longPoll'
+     */
+    @Test
+    public void longPollTest() {
+        // TODO: test longPoll
+    }
+
+    /**
+     * Test the property 'expiresIn'
+     */
+    @Test
+    public void expiresInTest() {
+        // TODO: test expiresIn
+    }
+
+    /**
      * Test the property 'metadata'
      */
     @Test
     public void metadataTest() {
         // TODO: test metadata
+    }
+
+    /**
+     * Test the property 'internalData'
+     */
+    @Test
+    public void internalDataTest() {
+        // TODO: test internalData
+    }
+
+    /**
+     * Test the property 'idempotencyKey'
+     */
+    @Test
+    public void idempotencyKeyTest() {
+        // TODO: test idempotencyKey
     }
 
 }

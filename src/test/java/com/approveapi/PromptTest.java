@@ -13,6 +13,7 @@
 
 package com.approveapi;
 
+import com.approveapi.CreatePromptRequest;
 import com.approveapi.PromptAnswer;
 import com.approveapi.PromptMetadata;
 import com.google.gson.TypeAdapter;
@@ -44,11 +45,11 @@ public class PromptTest {
     }
 
     /**
-     * Test the property 'answer'
+     * Test the property 'id'
      */
     @Test
-    public void answerTest() {
-        // TODO: test answer
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
@@ -68,11 +69,19 @@ public class PromptTest {
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'request'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void requestTest() {
+        // TODO: test request
+    }
+
+    /**
+     * Test the property 'answer'
+     */
+    @Test
+    public void answerTest() {
+        // TODO: test answer
     }
 
     /**

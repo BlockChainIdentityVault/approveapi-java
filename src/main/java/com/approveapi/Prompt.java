@@ -15,6 +15,7 @@ package com.approveapi;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.approveapi.CreatePromptRequest;
 import com.approveapi.PromptAnswer;
 import com.approveapi.PromptMetadata;
 import com.google.gson.TypeAdapter;
@@ -32,9 +33,9 @@ import java.math.BigDecimal;
  */
 
 public class Prompt {
-  public static final String SERIALIZED_NAME_ANSWER = "answer";
-  @SerializedName(SERIALIZED_NAME_ANSWER)
-  private PromptAnswer answer = null;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
   public static final String SERIALIZED_NAME_SENT_AT = "sent_at";
   @SerializedName(SERIALIZED_NAME_SENT_AT)
@@ -44,30 +45,34 @@ public class Prompt {
   @SerializedName(SERIALIZED_NAME_IS_EXPIRED)
   private Boolean isExpired;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
+  public static final String SERIALIZED_NAME_REQUEST = "request";
+  @SerializedName(SERIALIZED_NAME_REQUEST)
+  private CreatePromptRequest request = null;
+
+  public static final String SERIALIZED_NAME_ANSWER = "answer";
+  @SerializedName(SERIALIZED_NAME_ANSWER)
+  private PromptAnswer answer = null;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private PromptMetadata metadata = null;
 
-  public Prompt answer(PromptAnswer answer) {
-    this.answer = answer;
+  public Prompt id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get answer
-   * @return answer
+   * A unique id for this prompt.
+   * @return id
   **/
-  @ApiModelProperty(value = "")
-  public PromptAnswer getAnswer() {
-    return answer;
+  @ApiModelProperty(required = true, value = "A unique id for this prompt.")
+  public String getId() {
+    return id;
   }
 
-  public void setAnswer(PromptAnswer answer) {
-    this.answer = answer;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public Prompt sentAt(BigDecimal sentAt) {
@@ -106,22 +111,40 @@ public class Prompt {
     this.isExpired = isExpired;
   }
 
-  public Prompt id(String id) {
-    this.id = id;
+  public Prompt request(CreatePromptRequest request) {
+    this.request = request;
     return this;
   }
 
    /**
-   * A unique id for this prompt.
-   * @return id
+   * Get request
+   * @return request
   **/
-  @ApiModelProperty(required = true, value = "A unique id for this prompt.")
-  public String getId() {
-    return id;
+  @ApiModelProperty(required = true, value = "")
+  public CreatePromptRequest getRequest() {
+    return request;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setRequest(CreatePromptRequest request) {
+    this.request = request;
+  }
+
+  public Prompt answer(PromptAnswer answer) {
+    this.answer = answer;
+    return this;
+  }
+
+   /**
+   * Get answer
+   * @return answer
+  **/
+  @ApiModelProperty(value = "")
+  public PromptAnswer getAnswer() {
+    return answer;
+  }
+
+  public void setAnswer(PromptAnswer answer) {
+    this.answer = answer;
   }
 
   public Prompt metadata(PromptMetadata metadata) {
@@ -152,16 +175,17 @@ public class Prompt {
       return false;
     }
     Prompt prompt = (Prompt) o;
-    return Objects.equals(this.answer, prompt.answer) &&
+    return Objects.equals(this.id, prompt.id) &&
         Objects.equals(this.sentAt, prompt.sentAt) &&
         Objects.equals(this.isExpired, prompt.isExpired) &&
-        Objects.equals(this.id, prompt.id) &&
+        Objects.equals(this.request, prompt.request) &&
+        Objects.equals(this.answer, prompt.answer) &&
         Objects.equals(this.metadata, prompt.metadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(answer, sentAt, isExpired, id, metadata);
+    return Objects.hash(id, sentAt, isExpired, request, answer, metadata);
   }
 
 
@@ -169,10 +193,11 @@ public class Prompt {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Prompt {\n");
-    sb.append("    answer: ").append(toIndentedString(answer)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sentAt: ").append(toIndentedString(sentAt)).append("\n");
     sb.append("    isExpired: ").append(toIndentedString(isExpired)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    request: ").append(toIndentedString(request)).append("\n");
+    sb.append("    answer: ").append(toIndentedString(answer)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -29,10 +29,6 @@ import java.io.IOException;
  */
 
 public class AnswerMetadata {
-  public static final String SERIALIZED_NAME_OPERATING_SYSTEM = "operating_system";
-  @SerializedName(SERIALIZED_NAME_OPERATING_SYSTEM)
-  private String operatingSystem;
-
   public static final String SERIALIZED_NAME_IP_ADDRESS = "ip_address";
   @SerializedName(SERIALIZED_NAME_IP_ADDRESS)
   private String ipAddress;
@@ -41,23 +37,9 @@ public class AnswerMetadata {
   @SerializedName(SERIALIZED_NAME_BROWSER)
   private String browser;
 
-  public AnswerMetadata operatingSystem(String operatingSystem) {
-    this.operatingSystem = operatingSystem;
-    return this;
-  }
-
-   /**
-   * Get operatingSystem
-   * @return operatingSystem
-  **/
-  @ApiModelProperty(value = "")
-  public String getOperatingSystem() {
-    return operatingSystem;
-  }
-
-  public void setOperatingSystem(String operatingSystem) {
-    this.operatingSystem = operatingSystem;
-  }
+  public static final String SERIALIZED_NAME_OPERATING_SYSTEM = "operating_system";
+  @SerializedName(SERIALIZED_NAME_OPERATING_SYSTEM)
+  private String operatingSystem;
 
   public AnswerMetadata ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
@@ -95,6 +77,24 @@ public class AnswerMetadata {
     this.browser = browser;
   }
 
+  public AnswerMetadata operatingSystem(String operatingSystem) {
+    this.operatingSystem = operatingSystem;
+    return this;
+  }
+
+   /**
+   * Get operatingSystem
+   * @return operatingSystem
+  **/
+  @ApiModelProperty(value = "")
+  public String getOperatingSystem() {
+    return operatingSystem;
+  }
+
+  public void setOperatingSystem(String operatingSystem) {
+    this.operatingSystem = operatingSystem;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,14 +105,14 @@ public class AnswerMetadata {
       return false;
     }
     AnswerMetadata answerMetadata = (AnswerMetadata) o;
-    return Objects.equals(this.operatingSystem, answerMetadata.operatingSystem) &&
-        Objects.equals(this.ipAddress, answerMetadata.ipAddress) &&
-        Objects.equals(this.browser, answerMetadata.browser);
+    return Objects.equals(this.ipAddress, answerMetadata.ipAddress) &&
+        Objects.equals(this.browser, answerMetadata.browser) &&
+        Objects.equals(this.operatingSystem, answerMetadata.operatingSystem);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operatingSystem, ipAddress, browser);
+    return Objects.hash(ipAddress, browser, operatingSystem);
   }
 
 
@@ -120,9 +120,9 @@ public class AnswerMetadata {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnswerMetadata {\n");
-    sb.append("    operatingSystem: ").append(toIndentedString(operatingSystem)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    browser: ").append(toIndentedString(browser)).append("\n");
+    sb.append("    operatingSystem: ").append(toIndentedString(operatingSystem)).append("\n");
     sb.append("}");
     return sb.toString();
   }

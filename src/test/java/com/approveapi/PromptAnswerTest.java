@@ -43,19 +43,19 @@ public class PromptAnswerTest {
     }
 
     /**
-     * Test the property 'time'
-     */
-    @Test
-    public void timeTest() {
-        // TODO: test time
-    }
-
-    /**
      * Test the property 'result'
      */
     @Test
     public void resultTest() {
         // TODO: test result
+    }
+
+    /**
+     * Test the property 'time'
+     */
+    @Test
+    public void timeTest() {
+        // TODO: test time
     }
 
     /**

@@ -29,25 +29,43 @@ import java.io.IOException;
  */
 
 public class PromptMetadata {
+  public static final String SERIALIZED_NAME_LOCATION = "location";
+  @SerializedName(SERIALIZED_NAME_LOCATION)
+  private String location;
+
   public static final String SERIALIZED_NAME_TIME = "time";
   @SerializedName(SERIALIZED_NAME_TIME)
   private String time;
-
-  public static final String SERIALIZED_NAME_OPERATING_SYSTEM = "operating_system";
-  @SerializedName(SERIALIZED_NAME_OPERATING_SYSTEM)
-  private String operatingSystem;
 
   public static final String SERIALIZED_NAME_IP_ADDRESS = "ip_address";
   @SerializedName(SERIALIZED_NAME_IP_ADDRESS)
   private String ipAddress;
 
-  public static final String SERIALIZED_NAME_LOCATION = "location";
-  @SerializedName(SERIALIZED_NAME_LOCATION)
-  private String location;
-
   public static final String SERIALIZED_NAME_BROWSER = "browser";
   @SerializedName(SERIALIZED_NAME_BROWSER)
   private String browser;
+
+  public static final String SERIALIZED_NAME_OPERATING_SYSTEM = "operating_system";
+  @SerializedName(SERIALIZED_NAME_OPERATING_SYSTEM)
+  private String operatingSystem;
+
+  public PromptMetadata location(String location) {
+    this.location = location;
+    return this;
+  }
+
+   /**
+   * The physical location, like Oakland, CA, of the action.
+   * @return location
+  **/
+  @ApiModelProperty(value = "The physical location, like Oakland, CA, of the action.")
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
 
   public PromptMetadata time(String time) {
     this.time = time;
@@ -65,24 +83,6 @@ public class PromptMetadata {
 
   public void setTime(String time) {
     this.time = time;
-  }
-
-  public PromptMetadata operatingSystem(String operatingSystem) {
-    this.operatingSystem = operatingSystem;
-    return this;
-  }
-
-   /**
-   * The operating system initiating the action, i.e. Mac OS X.
-   * @return operatingSystem
-  **/
-  @ApiModelProperty(value = "The operating system initiating the action, i.e. Mac OS X.")
-  public String getOperatingSystem() {
-    return operatingSystem;
-  }
-
-  public void setOperatingSystem(String operatingSystem) {
-    this.operatingSystem = operatingSystem;
   }
 
   public PromptMetadata ipAddress(String ipAddress) {
@@ -103,24 +103,6 @@ public class PromptMetadata {
     this.ipAddress = ipAddress;
   }
 
-  public PromptMetadata location(String location) {
-    this.location = location;
-    return this;
-  }
-
-   /**
-   * The physical location, like Oakland, CA, of the action.
-   * @return location
-  **/
-  @ApiModelProperty(value = "The physical location, like Oakland, CA, of the action.")
-  public String getLocation() {
-    return location;
-  }
-
-  public void setLocation(String location) {
-    this.location = location;
-  }
-
   public PromptMetadata browser(String browser) {
     this.browser = browser;
     return this;
@@ -139,6 +121,24 @@ public class PromptMetadata {
     this.browser = browser;
   }
 
+  public PromptMetadata operatingSystem(String operatingSystem) {
+    this.operatingSystem = operatingSystem;
+    return this;
+  }
+
+   /**
+   * The operating system initiating the action, i.e. Mac OS X.
+   * @return operatingSystem
+  **/
+  @ApiModelProperty(value = "The operating system initiating the action, i.e. Mac OS X.")
+  public String getOperatingSystem() {
+    return operatingSystem;
+  }
+
+  public void setOperatingSystem(String operatingSystem) {
+    this.operatingSystem = operatingSystem;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,16 +149,16 @@ public class PromptMetadata {
       return false;
     }
     PromptMetadata promptMetadata = (PromptMetadata) o;
-    return Objects.equals(this.time, promptMetadata.time) &&
-        Objects.equals(this.operatingSystem, promptMetadata.operatingSystem) &&
+    return Objects.equals(this.location, promptMetadata.location) &&
+        Objects.equals(this.time, promptMetadata.time) &&
         Objects.equals(this.ipAddress, promptMetadata.ipAddress) &&
-        Objects.equals(this.location, promptMetadata.location) &&
-        Objects.equals(this.browser, promptMetadata.browser);
+        Objects.equals(this.browser, promptMetadata.browser) &&
+        Objects.equals(this.operatingSystem, promptMetadata.operatingSystem);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(time, operatingSystem, ipAddress, location, browser);
+    return Objects.hash(location, time, ipAddress, browser, operatingSystem);
   }
 
 
@@ -166,11 +166,11 @@ public class PromptMetadata {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PromptMetadata {\n");
-    sb.append("    time: ").append(toIndentedString(time)).append("\n");
-    sb.append("    operatingSystem: ").append(toIndentedString(operatingSystem)).append("\n");
-    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    browser: ").append(toIndentedString(browser)).append("\n");
+    sb.append("    operatingSystem: ").append(toIndentedString(operatingSystem)).append("\n");
     sb.append("}");
     return sb.toString();
   }

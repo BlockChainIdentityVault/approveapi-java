@@ -31,35 +31,17 @@ import java.math.BigDecimal;
  */
 
 public class PromptAnswer {
-  public static final String SERIALIZED_NAME_TIME = "time";
-  @SerializedName(SERIALIZED_NAME_TIME)
-  private BigDecimal time;
-
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
   private Boolean result;
 
+  public static final String SERIALIZED_NAME_TIME = "time";
+  @SerializedName(SERIALIZED_NAME_TIME)
+  private BigDecimal time;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private AnswerMetadata metadata = null;
-
-  public PromptAnswer time(BigDecimal time) {
-    this.time = time;
-    return this;
-  }
-
-   /**
-   * The unix timestamp when the user answered the prompt.
-   * @return time
-  **/
-  @ApiModelProperty(required = true, value = "The unix timestamp when the user answered the prompt.")
-  public BigDecimal getTime() {
-    return time;
-  }
-
-  public void setTime(BigDecimal time) {
-    this.time = time;
-  }
 
   public PromptAnswer result(Boolean result) {
     this.result = result;
@@ -77,6 +59,24 @@ public class PromptAnswer {
 
   public void setResult(Boolean result) {
     this.result = result;
+  }
+
+  public PromptAnswer time(BigDecimal time) {
+    this.time = time;
+    return this;
+  }
+
+   /**
+   * The unix timestamp when the user answered the prompt.
+   * @return time
+  **/
+  @ApiModelProperty(required = true, value = "The unix timestamp when the user answered the prompt.")
+  public BigDecimal getTime() {
+    return time;
+  }
+
+  public void setTime(BigDecimal time) {
+    this.time = time;
   }
 
   public PromptAnswer metadata(AnswerMetadata metadata) {
@@ -107,14 +107,14 @@ public class PromptAnswer {
       return false;
     }
     PromptAnswer promptAnswer = (PromptAnswer) o;
-    return Objects.equals(this.time, promptAnswer.time) &&
-        Objects.equals(this.result, promptAnswer.result) &&
+    return Objects.equals(this.result, promptAnswer.result) &&
+        Objects.equals(this.time, promptAnswer.time) &&
         Objects.equals(this.metadata, promptAnswer.metadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(time, result, metadata);
+    return Objects.hash(result, time, metadata);
   }
 
 
@@ -122,8 +122,8 @@ public class PromptAnswer {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PromptAnswer {\n");
-    sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
+    sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -5,7 +5,7 @@
     <artifactId>approveapi-client</artifactId>
     <packaging>jar</packaging>
     <name>approveapi-client</name>
-    <version>1.0.6</version>
+    <version>1.0.9</version>
     <url>https://github.com/approveapi/approveapi-java</url>
     <description>ApproveAPI Java Client</description>
     <scm>
